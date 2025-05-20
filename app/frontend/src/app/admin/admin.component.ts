@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { BehaviorSubject, map, Observable, shareReplay, Subject, take, takeUntil } from 'rxjs';
 import { CategoryDto } from '../../api/api.models';
 import { ApiService } from '../../api/api.service';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 
 @Component({
     selector: 'app-admin',
@@ -10,11 +10,11 @@ import { ApiService } from '../../api/api.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminComponent implements OnDestroy {
-    newQuestion = '';
-    selectedCategory: CategoryDto | null = null;
+    protected newQuestion = '';
+    protected selectedCategory: CategoryDto | null = null;
 
-    readonly loading$ = new BehaviorSubject<boolean>(false);
-    readonly categories$: Observable<CategoryDto[]>;
+    protected readonly loading$ = new BehaviorSubject<boolean>(false);
+    protected readonly categories$: Observable<CategoryDto[]>;
 
     private readonly destroy$ = new Subject<void>();
 
