@@ -4,54 +4,56 @@
 html,
 body,
 app-root {
-  height: 100%;
-  width: 100%;
-  display: block;
+    height: 100%;
+    width: 100%;
+    display: block;
 }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  color: $color-text;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: $color-text;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: $color-text;
+    color: $color-text;
 }
 
-*, *::after, *::before {
-  box-sizing: border-box;
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
-  cursor: pointer;
-  width: 8px;
-  background: transparent;
-  outline: none;
+    cursor: pointer;
+    width: 8px;
+    background: transparent;
+    outline: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background: rgba(48, 51, 57, 0.3);
-  width: 8px;
-  border: 0;
+    border-radius: 4px;
+    background: rgba(48, 51, 57, 0.3);
+    width: 8px;
+    border: 0;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-button:single-button {
-  display: none;
+    display: none;
 }
 
 * {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(48, 51, 57, 0.3);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(48, 51, 57, 0.3);
 }

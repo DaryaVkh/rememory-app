@@ -7,15 +7,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { HeaderComponent } from '../components/header/header.component';
 
 @NgModule({
-  declarations: [
-    MainComponent
-  ],
-  imports: [
-    CommonModule,
-    NzPageHeaderModule,
-    SvgIconComponent,
-    MainRoutingModule,
-    HeaderComponent
-  ]
+    declarations: [MainComponent],
+    imports: [CommonModule, NzPageHeaderModule, SvgIconComponent, MainRoutingModule, HeaderComponent],
 })
 export class MainModule {}

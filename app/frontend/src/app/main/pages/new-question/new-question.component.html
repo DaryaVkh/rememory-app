@@ -1,93 +1,142 @@
 <nz-layout class="full-width full-height">
-  <nz-sider class="new-question-page__side-menu" nzWidth="400px">
-    <a class="new-question-page__back-button" nz-button nzType="link" nzSize="large" [routerLink]="['/', 'app', 'general']">
-      <span nz-icon nzType="arrow-left" nzTheme="outline"></span>
-      Вернуться на главную страницу
-    </a>
+    <nz-sider
+        class="new-question-page__side-menu"
+        nzWidth="400px"
+    >
+        <a
+            class="new-question-page__back-button"
+            nz-button
+            nzType="link"
+            nzSize="large"
+            [routerLink]="['/', 'app', 'general']"
+        >
+            <span
+                nz-icon
+                nzType="arrow-left"
+                nzTheme="outline"
+            ></span>
+            Вернуться на главную страницу
+        </a>
 
-    <div class="flex-center">
-      <button nz-button nzSize="large" nzType="primary" (click)="isModalOpen$.next(true)">
-        Добавить свой вопрос
-      </button>
-    </div>
+        <div class="flex-center">
+            <button
+                nz-button
+                nzSize="large"
+                nzType="primary"
+                (click)="isModalOpen$.next(true)"
+            >
+                Добавить свой вопрос
+            </button>
+        </div>
 
-    <div class="new-question-page__word-delimiter flex-center">или</div>
+        <div class="new-question-page__word-delimiter flex-center">или</div>
 
-    <div class="new-question-page__questions-menu-container">
-      <ul nz-menu nzMode="inline">
-        <li nz-menu-group nzTitle="Выбрать категорию">
-          <ul>
-            <li *ngFor="let category of (categories$ | async)"
-                nz-menu-item [nzSelected]="(activeCategory$ | async)?.id === category.id"
-                (click)="changeActiveCategory(category)">
-              {{category.name}}
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nz-sider>
+        <div class="new-question-page__questions-menu-container">
+            <ul
+                nz-menu
+                nzMode="inline"
+            >
+                <li
+                    nz-menu-group
+                    nzTitle="Выбрать категорию"
+                >
+                    <ul>
+                        <li
+                            *ngFor="let category of categories$ | async"
+                            nz-menu-item
+                            [nzSelected]="(activeCategory$ | async)?.id === category.id"
+                            (click)="changeActiveCategory(category)"
+                        >
+                            {{ category.name }}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nz-sider>
 
-  <nz-layout class="new-question-page__content-container" [appLoader]="loading$ | async">
-    <ng-container *ngIf="activeCategory$ | async as activeCategory; else noContent">
-      <h1 class="new-question-page__content-title">Категория "{{activeCategory.name}}"</h1>
+    <nz-layout
+        class="new-question-page__content-container"
+        [appLoader]="loading$ | async"
+    >
+        <ng-container *ngIf="activeCategory$ | async as activeCategory; else noContent">
+            <h1 class="new-question-page__content-title">Категория "{{ activeCategory.name }}"</h1>
 
-      <div class="new-question-page__questions-container full-width">
-        <ng-container *ngIf="questions$ | async as questions">
-          <nz-list nzSize="large" *ngIf="questions.length; else noQuestions">
-            <nz-list-item *ngFor="let item of questions"
-                          class="new-question-page__question-list-item"
-                          [class.checked]="isQuestionChecked(item.id)"
-                          (click)="changeCheckedQuestions(!isQuestionChecked(item.id), item.id)">
-              <label nz-checkbox
-                     [nzChecked]="isQuestionChecked(item.id)"
-                     (nzCheckedChange)="changeCheckedQuestions($event, item.id)">
-              </label>
-              {{ item.title }}
-            </nz-list-item>
-          </nz-list>
+            <div class="new-question-page__questions-container full-width">
+                <ng-container *ngIf="questions$ | async as questions">
+                    <nz-list
+                        nzSize="large"
+                        *ngIf="questions.length; else noQuestions"
+                    >
+                        <nz-list-item
+                            *ngFor="let item of questions"
+                            class="new-question-page__question-list-item"
+                            [class.checked]="isQuestionChecked(item.id)"
+                            (click)="changeCheckedQuestions(!isQuestionChecked(item.id), item.id)"
+                        >
+                            <label
+                                nz-checkbox
+                                [nzChecked]="isQuestionChecked(item.id)"
+                                (nzCheckedChange)="changeCheckedQuestions($event, item.id)"
+                            >
+                            </label>
+                            {{ item.title }}
+                        </nz-list-item>
+                    </nz-list>
+                </ng-container>
+
+                <ng-template #noQuestions>
+                    <div class="full-width full-height flex-center">В этой категории нет новых вопросов</div>
+                </ng-template>
+            </div>
+
+            <div class="flex-center">
+                <button
+                    nz-button
+                    nzType="primary"
+                    nzSize="large"
+                    (click)="addToUserQuestions()"
+                >
+                    Добавить в свои вопросы
+                </button>
+            </div>
         </ng-container>
 
-        <ng-template #noQuestions>
-          <div class="full-width full-height flex-center">
-            В этой категории нет новых вопросов
-          </div>
+        <ng-template #noContent>
+            <div class="full-width full-height flex-center">
+                <div class="new-question-page__no-questions-container">
+                    <app-image
+                        width="466px"
+                        height="340px"
+                        alt="there is no questions"
+                        imageName="no-question-new-question.svg"
+                    ></app-image>
+                    <div class="new-question-page__text">
+                        <span class="new-question-page__text-main">Здесь пока ничего нет</span>
+                        <span class="new-question-page__text-addition">Выберите категорию</span>
+                        <span class="new-question-page__text-addition">или добавьте свой вопрос</span>
+                    </div>
+                </div>
+            </div>
         </ng-template>
-      </div>
-
-      <div class="flex-center">
-        <button nz-button nzType="primary" nzSize="large" (click)="addToUserQuestions()">
-          Добавить в свои вопросы
-        </button>
-      </div>
-    </ng-container>
-
-    <ng-template #noContent>
-      <div class="full-width full-height flex-center">
-        <div class="new-question-page__no-questions-container">
-          <app-image width="466px" height="340px" alt="there is no questions" imageName="no-question-new-question.svg"></app-image>
-          <div class="new-question-page__text">
-            <span class="new-question-page__text-main">Здесь пока ничего нет</span>
-            <span class="new-question-page__text-addition">Выберите категорию</span>
-            <span class="new-question-page__text-addition">или добавьте свой вопрос</span>
-          </div>
-        </div>
-      </div>
-    </ng-template>
-  </nz-layout>
+    </nz-layout>
 </nz-layout>
 
-<nz-modal [nzVisible]="isModalOpen$ | async"
-          (nzVisibleChange)="closeNewQuestionModal()"
-          nzTitle="Добавление нового вопроса"
-          nzOkText="Добавить"
-          nzCentered
-          (nzOnOk)="addNewQuestion()"
-          (nzOnCancel)="closeNewQuestionModal()">
-  <ng-container *nzModalContent>
-    <textarea class="new-question-page__question-textarea"
-              nz-input
-              placeholder="Введите текст вопроса"
-              [(ngModel)]="newQuestion"></textarea>
-  </ng-container>
+<nz-modal
+    [nzVisible]="isModalOpen$ | async"
+    (nzVisibleChange)="closeNewQuestionModal()"
+    nzTitle="Добавление нового вопроса"
+    nzOkText="Добавить"
+    nzCentered
+    (nzOnOk)="addNewQuestion()"
+    (nzOnCancel)="closeNewQuestionModal()"
+>
+    <ng-container *nzModalContent>
+        <textarea
+            class="new-question-page__question-textarea"
+            nz-input
+            placeholder="Введите текст вопроса"
+            [(ngModel)]="newQuestion"
+        ></textarea>
+    </ng-container>
 </nz-modal>

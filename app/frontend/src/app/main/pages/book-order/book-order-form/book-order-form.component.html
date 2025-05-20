@@ -1,80 +1,112 @@
-<nz-layout class="book-order-form__content-container full-height full-height" [appLoader]="loading$ | async">
-  <a nz-button nzType="link" nzSize="large" class="book-order-form__back-button" (click)="back('/app/book-order')">
-    <span nz-icon nzType="arrow-left" nzTheme="outline"></span>
-    Назад
-  </a>
+<nz-layout
+    class="book-order-form__content-container full-height full-height"
+    [appLoader]="loading$ | async"
+>
+    <a
+        nz-button
+        nzType="link"
+        nzSize="large"
+        class="book-order-form__back-button"
+        (click)="back('/app/book-order')"
+    >
+        <span
+            nz-icon
+            nzType="arrow-left"
+            nzTheme="outline"
+        ></span>
+        Назад
+    </a>
 
-  <div class="book-order-form__form-container" [formGroup]="form">
-    <h1 class="book-order-form__title">Введите адрес, на который хотите получить книгу</h1>
-    <span class="book-order-form__hint-text">Доставка осуществляется по территории РФ</span>
+    <div
+        class="book-order-form__form-container"
+        [formGroup]="form"
+    >
+        <h1 class="book-order-form__title">Введите адрес, на который хотите получить книгу</h1>
+        <span class="book-order-form__hint-text">Доставка осуществляется по территории РФ</span>
 
-    <div class="book-order-form__input-container full-width">
-      <div class="book-order-form__input-label">Регион*</div>
-      <input class="flex-1"
-             nz-input
-             formControlName="region"
-             nzSize="large"/>
-    </div>
+        <div class="book-order-form__input-container full-width">
+            <div class="book-order-form__input-label">Регион*</div>
+            <input
+                class="flex-1"
+                nz-input
+                formControlName="region"
+                nzSize="large"
+            />
+        </div>
 
-    <div class="book-order-form__input-container full-width">
-      <div class="book-order-form__input-label">Район</div>
-      <input class="flex-1"
-             nz-input
-             formControlName="district"
-             nzSize="large"/>
-    </div>
+        <div class="book-order-form__input-container full-width">
+            <div class="book-order-form__input-label">Район</div>
+            <input
+                class="flex-1"
+                nz-input
+                formControlName="district"
+                nzSize="large"
+            />
+        </div>
 
-    <div class="book-order-form__input-container full-width">
-      <div class="book-order-form__input-label">Населённый пункт*</div>
-      <input class="flex-1"
-             nz-input
-             formControlName="town"
-             nzSize="large"/>
-    </div>
+        <div class="book-order-form__input-container full-width">
+            <div class="book-order-form__input-label">Населённый пункт*</div>
+            <input
+                class="flex-1"
+                nz-input
+                formControlName="town"
+                nzSize="large"
+            />
+        </div>
 
-    <div class="book-order-form__input-container full-width">
-      <div class="book-order-form__input-label">Улица*</div>
-      <input class="flex-1"
-             nz-input
-             formControlName="street"
-             nzSize="large"/>
-    </div>
+        <div class="book-order-form__input-container full-width">
+            <div class="book-order-form__input-label">Улица*</div>
+            <input
+                class="flex-1"
+                nz-input
+                formControlName="street"
+                nzSize="large"
+            />
+        </div>
 
-    <div class="book-order-form__little-inputs-container full-width">
-      <div class="book-order-form__little-input-container">
-        <div>Дом*</div>
-        <input class="book-order-form__little-input"
-               nz-input
-               formControlName="house"
-               nzSize="large"/>
-      </div>
+        <div class="book-order-form__little-inputs-container full-width">
+            <div class="book-order-form__little-input-container">
+                <div>Дом*</div>
+                <input
+                    class="book-order-form__little-input"
+                    nz-input
+                    formControlName="house"
+                    nzSize="large"
+                />
+            </div>
 
-      <div class="book-order-form__little-input-container">
-        <div>Корпус</div>
-        <input class="book-order-form__little-input"
-               nz-input
-               formControlName="building"
-               nzSize="large"/>
-      </div>
+            <div class="book-order-form__little-input-container">
+                <div>Корпус</div>
+                <input
+                    class="book-order-form__little-input"
+                    nz-input
+                    formControlName="building"
+                    nzSize="large"
+                />
+            </div>
 
-      <div class="book-order-form__little-input-container">
-        <div>Квартира*</div>
-        <input class="book-order-form__little-input"
-               nz-input
-               type="number"
-               formControlName="flat"
-               nzSize="large"/>
-      </div>
-    </div>
+            <div class="book-order-form__little-input-container">
+                <div>Квартира*</div>
+                <input
+                    class="book-order-form__little-input"
+                    nz-input
+                    type="number"
+                    formControlName="flat"
+                    nzSize="large"
+                />
+            </div>
+        </div>
 
-    <button nz-button
+        <button
+            nz-button
             nzType="primary"
             nzSize="large"
             nz-tooltip
             [nzTooltipTitle]="!form.valid ? 'Чтобы оформить книгу, заполните все обязательные поля' : ''"
             [class.disabled]="!form.valid || !form.controls.flat.value"
-            (click)="orderBook()">
-      Оформить книгу
-    </button>
-  </div>
+            (click)="orderBook()"
+        >
+            Оформить книгу
+        </button>
+    </div>
 </nz-layout>

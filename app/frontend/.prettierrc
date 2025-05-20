@@ -1,0 +1,67 @@
+{
+    "tabWidth": 4,
+    "useTabs": false,
+    "printWidth": 120,
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "semi": true,
+    "singleAttributePerLine": true,
+    "trailingComma": "es5",
+    "importOrder": ["<THIRD_PARTY_MODULES>", "^src", "^[./]"],
+    "importOrderSeparation": true,
+    "importOrderParserPlugins": ["typescript", "decorators-legacy", "classProperties"],
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "options": {
+                "parser": "typescript"
+            }
+        },
+        {
+            "files": ["*.js"],
+            "options": {
+                "parser": "babel"
+            }
+        },
+        {
+            "files": ["*.json", ".prettierrc", ".stylelintrc"],
+            "options": {
+                "parser": "json"
+            }
+        },
+        {
+            "files": ["*.scss"],
+            "options": {
+                "parser": "scss"
+            }
+        },
+        {
+            "files": ["*.html"],
+            "options": {
+                "parser": "html",
+                "singleQuote": false
+            }
+        },
+        {
+            "files": ["*.component.html"],
+            "options": {
+                "parser": "angular",
+                "singleQuote": true
+            }
+        },
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "parser": "yaml",
+                "tabWidth": 4
+            }
+        },
+        {
+            "files": ["*.md"],
+            "options": {
+                "parser": "markdown",
+                "tabWidth": 4
+            }
+        }
+    ]
+}

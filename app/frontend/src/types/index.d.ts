@@ -1,7 +1,7 @@
 export {};
 
 declare global {
-  interface Window {
-    onGoogleLibraryLoad: () => void;
-  }
+    interface Window {
+        onGoogleLibraryLoad: () => void;
+    }
 }

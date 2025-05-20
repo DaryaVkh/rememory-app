@@ -1,54 +1,54 @@
 @import 'src/styles/variables';
 
 .settings-modal__content-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: $color-text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-text;
 }
 
 .settings-modal__header {
-  margin-bottom: 50px;
-  color: $color-text;
+    margin-bottom: 50px;
+    color: $color-text;
 }
 
 .settings-modal__form {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  width: 100%;
-  padding: 0 10% 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+    padding: 0 10% 2%;
 }
 
 .settings-modal__setting-label {
-  min-width: 25%;
-  cursor: default;
+    min-width: 25%;
+    cursor: default;
 }
 
 .settings-modal__setting-container {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  color: $color-text;
-  font-size: 18px;
-  line-height: 22px;
-  height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    color: $color-text;
+    font-size: 18px;
+    line-height: 22px;
+    height: 40px;
 }
 
 .settings-modal__hint {
-  font-size: 18px;
-  line-height: 22px;
+    font-size: 18px;
+    line-height: 22px;
 }
 
 .settings-modal__link {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .settings-modal__error-input-hint {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  color: red;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    color: red;
 }

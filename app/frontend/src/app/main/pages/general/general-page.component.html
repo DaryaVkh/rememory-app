@@ -1,100 +1,164 @@
-<nz-layout class="full-width full-height" [appLoader]="loading$ | async">
-  <nz-sider class="general-page__side-menu" nzWidth="400px">
-    <div class="flex-center">
-      <a class="general-page__new-question-button"
-         nz-button nzSize="large" nzType="primary"
-         [routerLink]="['..', 'new-question']"
-         [relativeTo]="route">
-        Получить новый вопрос
-      </a>
-    </div>
-
-    <nz-input-group class="general-page__input-group"
-                    nzSearch
-                    [nzAddOnAfter]="suffixIconButton"
-                    [nzSuffix]="suffixIconClean"
-                    (keydown.enter)="filterQuestionsByRequest()">
-      <input type="text" nz-input placeholder="Поиск среди вопросов..." [(ngModel)]="searchRequest"/>
-    </nz-input-group>
-    <ng-template #suffixIconClean>
-      <span *ngIf="searchRequest" class="general-page__input-icon clickable" nz-icon nzType="close" (click)="resetSearchRequest()"></span>
-    </ng-template>
-    <ng-template #suffixIconButton>
-      <button nz-button nzType="default" nzSearch (click)="filterQuestionsByRequest()">
-        <span nz-icon nzType="search"></span>
-      </button>
-    </ng-template>
-
-    <div class="general-page__questions-menu-container" *ngIf="questions$ | async as questions">
-      <ul nz-menu nzMode="inline">
-        <li nz-submenu [nzTitle]="'Неотвеченные (' + questions[questionStatusEnum.UNANSWERED].length + ')'"
-            nzIcon="mail">
-          <ul>
-            <li *ngFor="let question of questions[questionStatusEnum.UNANSWERED]"
-                nz-menu-item
-                (click)="selectAsActive(question)">
-              {{question.title}}
-            </li>
-          </ul>
-        </li>
-        <li nz-submenu [nzTitle]="'Частично отвеченные (' + questions[questionStatusEnum.PARTLY_ANSWERED].length + ')'"
-            nzIcon="mail">
-          <ul>
-            <li *ngFor="let question of questions[questionStatusEnum.PARTLY_ANSWERED]"
-                nz-menu-item
-                (click)="selectAsActive(question)">
-              {{question.title}}
-            </li>
-          </ul>
-        </li>
-        <li nz-submenu [nzTitle]="'Отвеченные (' + questions[questionStatusEnum.ANSWERED].length + ')'" nzIcon="mail">
-          <ul>
-            <li *ngFor="let question of questions[questionStatusEnum.ANSWERED]"
-                nz-menu-item
-                (click)="selectAsActive(question)">
-              {{question.title}}
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nz-sider>
-
-  <nz-layout class="general-page__content-container">
-    <ng-container *ngIf="activeQuestion$ | async as activeQuestion; else noQuestion">
-      <div class="general-page__question-container">{{activeQuestion.title}}</div>
-
-      <angular-editor class="general-page__answer-editor"
-                      [config]="config"
-                      [(ngModel)]="activeQuestion.answer">
-      </angular-editor>
-
-      <div class="general-page__answer-controls-container">
-        <label nz-checkbox
-               [ngModel]="isActiveQuestionPartlyAnswered$ | async"
-               (nzCheckedChange)="isActiveQuestionPartlyAnswered$.next($event)">
-          Вопрос отвечен частично
-        </label>
-
-        <button nz-button
+<nz-layout
+    class="full-width full-height"
+    [appLoader]="loading$ | async"
+>
+    <nz-sider
+        class="general-page__side-menu"
+        nzWidth="400px"
+    >
+        <div class="flex-center">
+            <a
+                class="general-page__new-question-button"
+                nz-button
                 nzSize="large"
                 nzType="primary"
-                (click)="saveAnswer(activeQuestion)">
-          Сохранить
-        </button>
-      </div>
-    </ng-container>
-
-    <ng-template #noQuestion>
-      <div class="full-width full-height flex-center">
-        <div class="general-page__no-questions-container">
-          <app-image width="466px" height="340px" alt="there is no questions" imageName="no-question-general.svg"></app-image>
-          <div class="general-page__text">
-            <span class="general-page__text-main">Здесь пока ничего нет</span>
-            <span class="general-page__text-addition">Выберите категорию</span>
-          </div>
+                [routerLink]="['..', 'new-question']"
+                [relativeTo]="route"
+            >
+                Получить новый вопрос
+            </a>
         </div>
-      </div>
-    </ng-template>
-  </nz-layout>
+
+        <nz-input-group
+            class="general-page__input-group"
+            nzSearch
+            [nzAddOnAfter]="suffixIconButton"
+            [nzSuffix]="suffixIconClean"
+            (keydown.enter)="filterQuestionsByRequest()"
+        >
+            <input
+                type="text"
+                nz-input
+                placeholder="Поиск среди вопросов..."
+                [(ngModel)]="searchRequest"
+            />
+        </nz-input-group>
+        <ng-template #suffixIconClean>
+            <span
+                *ngIf="searchRequest"
+                class="general-page__input-icon clickable"
+                nz-icon
+                nzType="close"
+                (click)="resetSearchRequest()"
+            ></span>
+        </ng-template>
+        <ng-template #suffixIconButton>
+            <button
+                nz-button
+                nzType="default"
+                nzSearch
+                (click)="filterQuestionsByRequest()"
+            >
+                <span
+                    nz-icon
+                    nzType="search"
+                ></span>
+            </button>
+        </ng-template>
+
+        <div
+            class="general-page__questions-menu-container"
+            *ngIf="questions$ | async as questions"
+        >
+            <ul
+                nz-menu
+                nzMode="inline"
+            >
+                <li
+                    nz-submenu
+                    [nzTitle]="'Неотвеченные (' + questions[questionStatusEnum.UNANSWERED].length + ')'"
+                    nzIcon="mail"
+                >
+                    <ul>
+                        <li
+                            *ngFor="let question of questions[questionStatusEnum.UNANSWERED]"
+                            nz-menu-item
+                            (click)="selectAsActive(question)"
+                        >
+                            {{ question.title }}
+                        </li>
+                    </ul>
+                </li>
+                <li
+                    nz-submenu
+                    [nzTitle]="'Частично отвеченные (' + questions[questionStatusEnum.PARTLY_ANSWERED].length + ')'"
+                    nzIcon="mail"
+                >
+                    <ul>
+                        <li
+                            *ngFor="let question of questions[questionStatusEnum.PARTLY_ANSWERED]"
+                            nz-menu-item
+                            (click)="selectAsActive(question)"
+                        >
+                            {{ question.title }}
+                        </li>
+                    </ul>
+                </li>
+                <li
+                    nz-submenu
+                    [nzTitle]="'Отвеченные (' + questions[questionStatusEnum.ANSWERED].length + ')'"
+                    nzIcon="mail"
+                >
+                    <ul>
+                        <li
+                            *ngFor="let question of questions[questionStatusEnum.ANSWERED]"
+                            nz-menu-item
+                            (click)="selectAsActive(question)"
+                        >
+                            {{ question.title }}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nz-sider>
+
+    <nz-layout class="general-page__content-container">
+        <ng-container *ngIf="activeQuestion$ | async as activeQuestion; else noQuestion">
+            <div class="general-page__question-container">{{ activeQuestion.title }}</div>
+
+            <angular-editor
+                class="general-page__answer-editor"
+                [config]="config"
+                [(ngModel)]="activeQuestion.answer"
+            >
+            </angular-editor>
+
+            <div class="general-page__answer-controls-container">
+                <label
+                    nz-checkbox
+                    [ngModel]="isActiveQuestionPartlyAnswered$ | async"
+                    (nzCheckedChange)="isActiveQuestionPartlyAnswered$.next($event)"
+                >
+                    Вопрос отвечен частично
+                </label>
+
+                <button
+                    nz-button
+                    nzSize="large"
+                    nzType="primary"
+                    (click)="saveAnswer(activeQuestion)"
+                >
+                    Сохранить
+                </button>
+            </div>
+        </ng-container>
+
+        <ng-template #noQuestion>
+            <div class="full-width full-height flex-center">
+                <div class="general-page__no-questions-container">
+                    <app-image
+                        width="466px"
+                        height="340px"
+                        alt="there is no questions"
+                        imageName="no-question-general.svg"
+                    ></app-image>
+                    <div class="general-page__text">
+                        <span class="general-page__text-main">Здесь пока ничего нет</span>
+                        <span class="general-page__text-addition">Выберите категорию</span>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </nz-layout>
 </nz-layout>

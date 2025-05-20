@@ -1,108 +1,107 @@
 @import '../../../../styles/variables';
 
 :host {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
 }
 
 .new-question-page__side-menu {
-  background-color: $color-contrast;
-  padding-top: 25px;
+    background-color: $color-contrast;
+    padding-top: 25px;
 }
 
 .new-question-page__back-button {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 .new-question-page__word-delimiter {
-  color: $color-text-brown-light;
-  font-size: 20px;
-  margin: 24px 0;
+    color: $color-text-brown-light;
+    font-size: 20px;
+    margin: 24px 0;
 }
 
 .new-question-page__questions-menu-container {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  max-height: calc(100vh - 270px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: calc(100vh - 270px);
 }
 
 .new-question-page__content-container {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 7vh 7vw 5vh;
-  background-color: $color-work-space-bg;
-  overflow-y: scroll;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 7vh 7vw 5vh;
+    background-color: $color-work-space-bg;
+    overflow-y: scroll;
 }
 
 .new-question-page__content-title {
-  color: $color-text-brown-light;
-  font-size: 36px;
-  font-weight: 400;
-  margin: 0 0 30px;
+    color: $color-text-brown-light;
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0 0 30px;
 }
 
 .new-question-page__questions-container {
-  background-color: $color-contrast;
-  overflow-x: hidden;
-  height: 75%;
-  margin-bottom: 24px;
+    background-color: $color-contrast;
+    overflow-x: hidden;
+    height: 75%;
+    margin-bottom: 24px;
 }
 
 .new-question-page__question-list-item {
-  cursor: pointer;
-  justify-content: flex-start;
-  gap: 20px;
+    cursor: pointer;
+    justify-content: flex-start;
+    gap: 20px;
 
-  &.checked {
-    background-color: $color-basic-lighten-4;
-  }
+    &.checked {
+        background-color: $color-basic-lighten-4;
+    }
 
-  &:not(.checked):hover {
-    background-color: $color-basic-lighten-5;
-  }
+    &:not(.checked):hover {
+        background-color: $color-basic-lighten-5;
+    }
 }
 
 .new-question-page__question-textarea {
-  max-height: 50vh;
+    max-height: 50vh;
 }
 
 :host::ng-deep {
-  .ant-menu-item-group-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: $color-basic;
-  }
+    .ant-menu-item-group-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: $color-basic;
+    }
 }
 
 .new-question-page__no-questions-container {
-  justify-content: center;
-  align-items: center;
-  background-color: $color-work-space-bg;
-  display: flex;
-  flex-direction: column;
-  gap: 10vh;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-work-space-bg;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
 }
 
 .new-question-page__text {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  white-space: nowrap;
-  line-height: 45px;
-  color: $color-text;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    line-height: 45px;
+    color: $color-text;
 }
 
 .new-question-page__text-main {
-  font-size: 36px;
-  font-weight: 600;
+    font-size: 36px;
+    font-weight: 600;
 }
 
 .new-question-page__text-addition {
-  font-size: 30px;
-  font-weight: 400;
+    font-size: 30px;
+    font-weight: 400;
 }
-

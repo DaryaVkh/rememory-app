@@ -1,42 +1,83 @@
 <nz-page-header class="header">
-  <nz-page-header-title class="header__title clickable flex-center" [routerLink]="['/', 'app', 'general']">
-    <app-svg-icon class="header__app-logo" icon="rememory-logo"></app-svg-icon>
-  </nz-page-header-title>
-  <nz-page-header-extra *ngIf="user$ | async as user" class="header__extra-block">
-    <div class="header__user-info clickable" (click)="openSettingsModal()">
-      <span class="header__icon"
-            nz-icon
-            nzType="setting"
-            nzTheme="fill">
-      </span>
-      <span>Настройки</span>
-    </div>
-    <div class="header__user-info clickable" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu"
-         nzPlacement="bottomRight">
-      <a>
-        <nz-avatar nz-page-header-avatar [nzSrc]="user.photoUrl"></nz-avatar>
-      </a>
-      <span>{{user.name}}</span>
-    </div>
+    <nz-page-header-title
+        class="header__title clickable flex-center"
+        [routerLink]="['/', 'app', 'general']"
+    >
+        <app-svg-icon
+            class="header__app-logo"
+            icon="rememory-logo"
+        ></app-svg-icon>
+    </nz-page-header-title>
+    <nz-page-header-extra
+        *ngIf="user$ | async as user"
+        class="header__extra-block"
+    >
+        <div
+            class="header__user-info clickable"
+            (click)="openSettingsModal()"
+        >
+            <span
+                class="header__icon"
+                nz-icon
+                nzType="setting"
+                nzTheme="fill"
+            >
+            </span>
+            <span>Настройки</span>
+        </div>
+        <div
+            class="header__user-info clickable"
+            nz-dropdown
+            nzTrigger="click"
+            [nzDropdownMenu]="menu"
+            nzPlacement="bottomRight"
+        >
+            <a>
+                <nz-avatar
+                    nz-page-header-avatar
+                    [nzSrc]="user.photoUrl"
+                ></nz-avatar>
+            </a>
+            <span>{{ user.name }}</span>
+        </div>
 
-    <div class="header__delimiter"></div>
+        <div class="header__delimiter"></div>
 
-    <button class="header__my-books-button flex-center" nz-button nzSize="large" nzType="primary" [routerLink]="['/', 'app', 'book-order']">
-      <span class="header__button-icon" nz-icon nzType="read" nzTheme="outline"></span>
-      Моя книга
-    </button>
-    <nz-dropdown-menu #menu="nzDropdownMenu">
-      <ul nz-menu>
-        <li nz-menu-item nzDanger (click)="logout()">Выйти</li>
-      </ul>
-    </nz-dropdown-menu>
-  </nz-page-header-extra>
+        <button
+            class="header__my-books-button flex-center"
+            nz-button
+            nzSize="large"
+            nzType="primary"
+            [routerLink]="['/', 'app', 'book-order']"
+        >
+            <span
+                class="header__button-icon"
+                nz-icon
+                nzType="read"
+                nzTheme="outline"
+            ></span>
+            Моя книга
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+                <li
+                    nz-menu-item
+                    nzDanger
+                    (click)="logout()"
+                >
+                    Выйти
+                </li>
+            </ul>
+        </nz-dropdown-menu>
+    </nz-page-header-extra>
 </nz-page-header>
 
-<app-settings-modal *ngIf="(isSettingsModalOpen$ | async) && (settings$ | async)"
-                    [isSettingsModalOpen$]="isSettingsModalOpen$"
-                    [settings]="(settings$ | async) || defaultSettings"
-                    (saveSettings)="saveSettings($event)">
+<app-settings-modal
+    *ngIf="(isSettingsModalOpen$ | async) && (settings$ | async)"
+    [isSettingsModalOpen$]="isSettingsModalOpen$"
+    [settings]="(settings$ | async) || defaultSettings"
+    (saveSettings)="saveSettings($event)"
+>
 </app-settings-modal>
 
 <app-loader *ngIf="loading$ | async"></app-loader>

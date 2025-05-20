@@ -16,24 +16,21 @@ import { BookOrderPageRoutingModule } from './book-order-page-routing.module';
 import { BookOrderPageComponent } from './book-order-page.component';
 
 @NgModule({
-  declarations: [
-    BookOrderPageComponent,
-    BookOrderFormComponent
-  ],
-  imports: [
-    CommonModule,
-    NzLayoutModule,
-    BookOrderPageRoutingModule,
-    ImageComponent,
-    NzWaveModule,
-    NzButtonModule,
-    NzIconModule,
-    NzModalModule,
-    NzInputModule,
-    ReactiveFormsModule,
-    NzToolTipModule,
-    NzNotificationModule,
-    LoaderModule
-  ]
+    declarations: [BookOrderPageComponent, BookOrderFormComponent],
+    imports: [
+        CommonModule,
+        NzLayoutModule,
+        BookOrderPageRoutingModule,
+        ImageComponent,
+        NzWaveModule,
+        NzButtonModule,
+        NzIconModule,
+        NzModalModule,
+        NzInputModule,
+        ReactiveFormsModule,
+        NzToolTipModule,
+        NzNotificationModule,
+        LoaderModule,
+    ],
 })
 export class BookOrderPageModule {}

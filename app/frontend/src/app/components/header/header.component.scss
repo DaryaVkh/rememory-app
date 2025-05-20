@@ -1,71 +1,71 @@
 @import 'src/styles/variables';
 
 .header {
-  background-color: $color-basic;
-  height: 65px;
-  display: flex;
-  align-items: center;
-  padding: 0 24px;
+    background-color: $color-basic;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
 }
 
 .header__title {
-  color: $color-text;
+    color: $color-text;
 }
 
 .header__app-logo {
-  width: 125px;
-  height: 27px;
+    width: 125px;
+    height: 27px;
 }
 
 .header__extra-block {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin: 0;
-  gap: 25px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    gap: 25px;
 }
 
 .header__user-info {
-  display: flex;
-  align-items: center;
-  color: $color-text;
-  font-size: 18px;
+    display: flex;
+    align-items: center;
+    color: $color-text;
+    font-size: 18px;
 }
 
 .header__icon {
-  font-size: 24px;
-  color: $color-text;
-  margin-right: 12px;
+    font-size: 24px;
+    color: $color-text;
+    margin-right: 12px;
 }
 
 .header__delimiter {
-  height: 32px;
-  width: 1px;
-  background-color: $color-text-brown-light;
+    height: 32px;
+    width: 1px;
+    background-color: $color-text-brown-light;
 }
 
 .header__my-books-button {
-  background-color: $color-text;
-  border-color: transparent;
-  padding: 0 30px;
+    background-color: $color-text;
+    border-color: transparent;
+    padding: 0 30px;
 
-  &:hover {
-    background-color: $color-text-lighten-1;
-  }
+    &:hover {
+        background-color: $color-text-lighten-1;
+    }
 
-  &:active {
-    background-color: $color-text-brown-light;
-  }
+    &:active {
+        background-color: $color-text-brown-light;
+    }
 }
 
 .header__button-icon {
-  font-size: 24px;
-  height: 24px;
+    font-size: 24px;
+    height: 24px;
 }
 
 ::ng-deep {
-  .ant-page-header-heading {
-    align-items: center;
-    flex: 1;
-  }
+    .ant-page-header-heading {
+        align-items: center;
+        flex: 1;
+    }
 }

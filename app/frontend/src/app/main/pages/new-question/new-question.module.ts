@@ -15,23 +15,21 @@ import { NewQuestionRoutingModule } from './new-question-routing.module';
 import { NewQuestionComponent } from './new-question.component';
 
 @NgModule({
-  declarations: [
-    NewQuestionComponent
-  ],
-  imports: [
-    CommonModule,
-    NewQuestionRoutingModule,
-    NzLayoutModule,
-    LoaderModule,
-    NzButtonModule,
-    NzMenuModule,
-    NzListModule,
-    NzCheckboxModule,
-    NzModalModule,
-    NzInputModule,
-    FormsModule,
-    ImageComponent,
-    NzIconModule
-  ]
+    declarations: [NewQuestionComponent],
+    imports: [
+        CommonModule,
+        NewQuestionRoutingModule,
+        NzLayoutModule,
+        LoaderModule,
+        NzButtonModule,
+        NzMenuModule,
+        NzListModule,
+        NzCheckboxModule,
+        NzModalModule,
+        NzInputModule,
+        FormsModule,
+        ImageComponent,
+        NzIconModule,
+    ],
 })
 export class NewQuestionModule {}

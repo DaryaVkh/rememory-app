@@ -17,22 +17,9 @@ registerLocaleData(ru);
 const ngZorroConfig: NzConfig = {};
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NzIconModule,
-  ],
-  providers: [
-    {provide: NZ_I18N, useValue: ru_RU},
-    {provide: NZ_CONFIG, useValue: ngZorroConfig},
-    CookieService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, NzIconModule],
+    providers: [{ provide: NZ_I18N, useValue: ru_RU }, { provide: NZ_CONFIG, useValue: ngZorroConfig }, CookieService],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,14 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthPageComponent } from './auth-page.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AuthPageComponent,
-  },
+    {
+        path: '',
+        component: AuthPageComponent,
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class AuthPageRoutingModule { }
+export class AuthPageRoutingModule {}

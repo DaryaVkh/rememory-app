@@ -4,14 +4,12 @@ import { UserDto } from '../../api/api.models';
 import { ApiService } from '../../api/api.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class MainService {
-  readonly user$: Observable<UserDto>;
+    readonly user$: Observable<UserDto>;
 
-  constructor(private readonly apiService: ApiService) {
-    this.user$ = apiService.getCurrentUser().pipe(
-      shareReplay({bufferSize: 1, refCount: false})
-    );
-  }
+    constructor(private readonly apiService: ApiService) {
+        this.user$ = apiService.getCurrentUser().pipe(shareReplay({ bufferSize: 1, refCount: false }));
+    }
 }

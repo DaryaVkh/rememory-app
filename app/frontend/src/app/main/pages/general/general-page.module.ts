@@ -18,26 +18,24 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { ImageComponent } from '../../../components/image/image.component';
 
 @NgModule({
-  declarations: [
-    GeneralPageComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    GeneralPageRoutingModule,
-    NzLayoutModule,
-    NzPageHeaderModule,
-    SvgIconComponent,
-    NzAvatarModule,
-    NzButtonModule,
-    NzInputModule,
-    NzIconModule,
-    NzMenuModule,
-    AngularEditorModule,
-    NzCheckboxModule,
-    LoaderModule,
-    NzNotificationModule,
-    ImageComponent
-  ]
+    declarations: [GeneralPageComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        GeneralPageRoutingModule,
+        NzLayoutModule,
+        NzPageHeaderModule,
+        SvgIconComponent,
+        NzAvatarModule,
+        NzButtonModule,
+        NzInputModule,
+        NzIconModule,
+        NzMenuModule,
+        AngularEditorModule,
+        NzCheckboxModule,
+        LoaderModule,
+        NzNotificationModule,
+        ImageComponent,
+    ],
 })
-export class GeneralPageModule { }
+export class GeneralPageModule {}

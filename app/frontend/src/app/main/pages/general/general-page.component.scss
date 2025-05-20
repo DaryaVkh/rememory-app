@@ -1,126 +1,126 @@
 @import 'src/styles/variables';
 
 :host {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
 }
 
 .general-page__side-menu {
-  background-color: $color-contrast;
-  padding-top: 34px;
-  overflow: hidden;
+    background-color: $color-contrast;
+    padding-top: 34px;
+    overflow: hidden;
 }
 
 .general-page__new-question-button {
-  margin-bottom: 34px;
+    margin-bottom: 34px;
 }
 
 .general-page__input-group {
-  padding: 0 27px;
-  margin-bottom: 34px;
+    padding: 0 27px;
+    margin-bottom: 34px;
 }
 
 .general-page__input-icon {
-  color: $color-icon;
+    color: $color-icon;
 }
 
 .general-page__questions-menu-container {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  max-height: calc(100% - 140px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: calc(100% - 140px);
 }
 
 .ant-menu-inline.ant-menu-root .ant-menu-item {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  display: inline-block;
-  overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    overflow-wrap: break-word;
 }
 
 .ant-menu-item-selected {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .general-page__content-container {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 5vh 7vw;
-  background-color: $color-work-space-bg;
-  overflow-y: scroll;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 7vw;
+    background-color: $color-work-space-bg;
+    overflow-y: scroll;
 }
 
 .general-page__question-container {
-  padding: 12px 20px;
-  color: $color-text;
-  font-size: 18px;
-  line-height: 22px;
-  background-color: $color-contrast;
-  margin-bottom: 32px;
+    padding: 12px 20px;
+    color: $color-text;
+    font-size: 18px;
+    line-height: 22px;
+    background-color: $color-contrast;
+    margin-bottom: 32px;
 }
 
 .general-page__answer-editor {
-  flex: 1;
-  max-height: 800px;
-  display: flex;
-  margin-bottom: 60px;
+    flex: 1;
+    max-height: 800px;
+    display: flex;
+    margin-bottom: 60px;
 }
 
 :host::ng-deep {
-  .angular-editor {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    .angular-editor {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
 
-    .angular-editor-wrapper {
-      flex: 1;
-      display: flex;
+        .angular-editor-wrapper {
+            flex: 1;
+            display: flex;
+        }
     }
-  }
 
-  .angular-editor-textarea {
-    background-color: $color-contrast !important;
-    resize: unset !important;
-    flex: 1;
-    margin-top: 0 !important;
-    height: auto !important;
-    max-height: 45vh;
-  }
+    .angular-editor-textarea {
+        background-color: $color-contrast !important;
+        resize: unset !important;
+        flex: 1;
+        margin-top: 0 !important;
+        height: auto !important;
+        max-height: 45vh;
+    }
 }
 
 .general-page__answer-controls-container {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 .general-page__no-questions-container {
-  justify-content: center;
-  align-items: center;
-  background-color: $color-work-space-bg;
-  display: flex;
-  flex-direction: column;
-  gap: 5vh;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-work-space-bg;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
 }
 
 .general-page__text {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  white-space: nowrap;
-  line-height: 45px;
-  color: $color-text;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    line-height: 45px;
+    color: $color-text;
 }
 
 .general-page__text-main {
-  font-size: 36px;
-  font-weight: 600;
+    font-size: 36px;
+    font-weight: 600;
 }
 
 .general-page__text-addition {
-  font-size: 30px;
-  font-weight: 400;
+    font-size: 30px;
+    font-weight: 400;
 }

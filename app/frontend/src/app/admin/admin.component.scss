@@ -1,27 +1,27 @@
 :host {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
 }
 
 .admin__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
 .admin__new-question-input {
-  width: 50%;
+    width: 50%;
 }
 
 .admin__new-question-category {
-  width: 50%;
-  margin-top: 20px;
+    width: 50%;
+    margin-top: 20px;
 }
 
 .admin__new-question-button {
-  margin-top: 40px;
+    margin-top: 40px;
 }

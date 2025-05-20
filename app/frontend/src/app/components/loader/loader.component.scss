@@ -1,53 +1,53 @@
 @use 'src/styles/variables' as *;
 
 .loader__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
 
 .loader__container {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  z-index: 11;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 11;
 }
 
 .loader {
-  transform-origin: center center;
-  animation: rotate 2s linear infinite;
-  width: max(10vh, 80px);
-  height: max(10vh, 80px);
+    transform-origin: center center;
+    animation: rotate 2s linear infinite;
+    width: max(10vh, 80px);
+    height: max(10vh, 80px);
 
-  circle {
-    stroke: $color-basic;
-    stroke-linecap: round;
-    animation: dash 1.5s ease-in-out infinite;
-  }
+    circle {
+        stroke: $color-basic;
+        stroke-linecap: round;
+        animation: dash 1.5s ease-in-out infinite;
+    }
 }
 
 @keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes dash {
-  0% {
-    stroke-dasharray: 1, 150;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -124;
-  }
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
 }

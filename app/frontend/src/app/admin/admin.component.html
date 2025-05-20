@@ -1,19 +1,35 @@
-<div class="admin__container full-height full-height" [appLoader]="loading$ | async">
-  <input class="admin__new-question-input"
-         nz-input
-         placeholder="Введите новый вопрос"
-         nzSize="large"
-         [(ngModel)]="newQuestion"/>
+<div
+    class="admin__container full-height full-height"
+    [appLoader]="loading$ | async"
+>
+    <input
+        class="admin__new-question-input"
+        nz-input
+        placeholder="Введите новый вопрос"
+        nzSize="large"
+        [(ngModel)]="newQuestion"
+    />
 
-  <nz-select class="admin__new-question-category" [(ngModel)]="selectedCategory" nzSize="large" nzPlaceHolder="Выберите категорию">
-    <nz-option *ngFor="let category of categories$ | async" [nzValue]="category" [nzLabel]="category.name"></nz-option>
-  </nz-select>
+    <nz-select
+        class="admin__new-question-category"
+        [(ngModel)]="selectedCategory"
+        nzSize="large"
+        nzPlaceHolder="Выберите категорию"
+    >
+        <nz-option
+            *ngFor="let category of categories$ | async"
+            [nzValue]="category"
+            [nzLabel]="category.name"
+        ></nz-option>
+    </nz-select>
 
-  <button class="admin__new-question-button"
-          nz-button
-          nzSize="large"
-          nzType="primary"
-          (click)="addNewQuestion()">
-    Добавить
-  </button>
+    <button
+        class="admin__new-question-button"
+        nz-button
+        nzSize="large"
+        nzType="primary"
+        (click)="addNewQuestion()"
+    >
+        Добавить
+    </button>
 </div>

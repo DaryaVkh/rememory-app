@@ -1,27 +1,48 @@
-<nz-layout class="full-width full-height" [appLoader]="loading$ | async">
-  <app-header></app-header>
-  <nz-content>
-    <div class="auth-page__bg full-width flex-center">
-      <div #googleButton id="buttonDiv"></div>
-    </div>
+<nz-layout
+    class="full-width full-height"
+    [appLoader]="loading$ | async"
+>
+    <app-header></app-header>
+    <nz-content>
+        <div class="auth-page__bg full-width flex-center">
+            <div
+                #googleButton
+                id="buttonDiv"
+            ></div>
+        </div>
 
-    <div class="auth-page__info-container flex-center">
-      <ul class="auth-page__info">
-        <li class="auth-page__info-item">
-          <span class="auth-page__info-icon" nz-icon nzType="heart" nzTheme="outline"></span>
-          <span>Узнавайте о жизни любимых</span>
-        </li>
+        <div class="auth-page__info-container flex-center">
+            <ul class="auth-page__info">
+                <li class="auth-page__info-item">
+                    <span
+                        class="auth-page__info-icon"
+                        nz-icon
+                        nzType="heart"
+                        nzTheme="outline"
+                    ></span>
+                    <span>Узнавайте о жизни любимых</span>
+                </li>
 
-        <li class="auth-page__info-item">
-          <span class="auth-page__info-icon" nz-icon nzType="read" nzTheme="outline"></span>
-          <span>Напишите свою книгу</span>
-        </li>
+                <li class="auth-page__info-item">
+                    <span
+                        class="auth-page__info-icon"
+                        nz-icon
+                        nzType="read"
+                        nzTheme="outline"
+                    ></span>
+                    <span>Напишите свою книгу</span>
+                </li>
 
-        <li class="auth-page__info-item">
-          <span class="auth-page__info-icon" nz-icon nzType="comment" nzTheme="outline"></span>
-          <span>Начните больше общаться с родными</span>
-        </li>
-      </ul>
-    </div>
-  </nz-content>
+                <li class="auth-page__info-item">
+                    <span
+                        class="auth-page__info-icon"
+                        nz-icon
+                        nzType="comment"
+                        nzTheme="outline"
+                    ></span>
+                    <span>Начните больше общаться с родными</span>
+                </li>
+            </ul>
+        </div>
+    </nz-content>
 </nz-layout>

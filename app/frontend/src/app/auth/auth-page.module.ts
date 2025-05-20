@@ -12,20 +12,18 @@ import { AuthPageRoutingModule } from './auth-page-routing.module';
 import { AuthPageComponent } from './auth-page.component';
 
 @NgModule({
-  declarations: [
-    AuthPageComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    NzLayoutModule,
-    NzPageHeaderModule,
-    AuthPageRoutingModule,
-    NzIconModule,
-    NzButtonModule,
-    SvgIconComponent,
-    LoaderModule,
-    HeaderComponent
-  ]
+    declarations: [AuthPageComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        NzLayoutModule,
+        NzPageHeaderModule,
+        AuthPageRoutingModule,
+        NzIconModule,
+        NzButtonModule,
+        SvgIconComponent,
+        LoaderModule,
+        HeaderComponent,
+    ],
 })
 export class AuthPageModule {}

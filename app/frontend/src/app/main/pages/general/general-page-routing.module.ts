@@ -3,14 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { GeneralPageComponent } from './general-page.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: GeneralPageComponent
-  }
+    {
+        path: '',
+        component: GeneralPageComponent,
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
 export class GeneralPageRoutingModule {}
